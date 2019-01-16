@@ -1,0 +1,164 @@
+.about-me {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.about-me__container {
+  position: relative;
+  padding-top: 360px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 48.4375%;
+    height: 300px;
+    background-color: #a2afcb;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    background-image: url("../img/about-me-bg-left-mobile@1x.jpg");
+    background-position: 100% 50%;
+
+    @include retina {
+      background-image: url("../img/about-me-bg-left-mobile@2x.jpg");
+    }
+  }
+
+  &::after {
+    top: 30px;
+    right: 0;
+    background-image: url("../img/about-me-bg-right-mobile@1x.jpg");
+    background-position: 0% 50%;
+
+    @include retina {
+      background-image: url("../img/about-me-bg-right-mobile@2x.jpg");
+    }
+  }
+}
+
+.about-me__content {
+  padding: 0 $mobile-padding;
+  text-align: center;
+}
+
+.about-me__text-group {
+  &--first {
+    margin-bottom: 25px;
+  }
+}
+
+
+@include tablet {
+  .about-me {
+    padding-left: $tablet-padding;
+    padding-right: $tablet-padding;
+  }
+
+  .about-me__container {
+    padding-top: 440px;
+
+    &::before,
+    &::after {
+      height: 420px;
+    }
+
+    &::before {
+      background-image: url("../img/about-me-bg-left-tablet@1x.jpg");
+
+      @include retina {
+        background-image: url("../img/about-me-bg-left-tablet@2x.jpg");
+      }
+    }
+
+    &::after {
+      background-image: url("../img/about-me-bg-right-tablet@1x.jpg");
+
+      @include retina {
+        background-image: url("../img/about-me-bg-right-tablet@2x.jpg");
+      }
+    }
+  }
+
+  .about-me__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0;
+    text-align: left;
+  }
+
+  .about-me__text-group {
+    // 310 / 640
+    width: 48.4375%;
+
+    &--first {
+      margin-bottom: 0;
+    }
+
+    &--second {
+      padding-top: 30px;
+    }
+  }
+}
+
+
+@include desktop {
+  .about-me {
+    padding-left: $desktop-padding;
+    padding-right: $desktop-padding;
+  }
+
+  .about-me__container {
+    padding-top: 75px;
+
+    &::before,
+    &::after {
+      width: 315px;
+      height: 430px;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      background-image: url("../img/about-me-bg-left-desktop@1x.jpg");
+
+      @include retina {
+        background-image: url("../img/about-me-bg-left-desktop@2x.jpg");
+      }
+    }
+
+    &::after {
+      left: 345px;
+      background-image: url("../img/about-me-bg-right-desktop@1x.jpg");
+
+      @include retina {
+        background-image: url("../img/about-me-bg-right-desktop@2x.jpg");
+      }
+    }
+  }
+
+  .about-me__content {
+    display: block;
+    width: 355px;
+    padding: 40px 40px 125px 548px;
+    margin-left: auto;
+    background-color: $light-gray;
+  }
+
+  .about-me__text-group {
+    width: 100%;
+
+    &--first {
+      margin-bottom: 25px;
+    }
+
+    &--second {
+      padding-top: 0;
+    }
+  }
+}

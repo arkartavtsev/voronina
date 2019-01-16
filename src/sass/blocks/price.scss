@@ -1,0 +1,28 @@
+.price__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -60px;
+  margin-left: -20px;
+  list-style: none;
+}
+
+.price__list-item {
+  margin-bottom: 60px;
+  margin-left: 20px;
+}
+
+
+@include tablet {
+  .price__list {
+    justify-content: space-between;
+    margin-left: 0;
+  }
+
+  .price__list-item {
+    margin-left: 0;
+  }
+}

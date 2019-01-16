@@ -1,0 +1,22 @@
+.page-body {
+  min-width: $mobile-min-width;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "Source Serif Pro", $reserve-font-family;
+  color: $light-black;
+}
+
+
+@include tablet {
+  .page-body {
+    font-size: 16px;
+  }
+}
+
+
+@include tablet {
+  .page-body {
+    font-size: 18px;
+  }
+}

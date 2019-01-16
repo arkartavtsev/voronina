@@ -1,0 +1,23 @@
+.link {
+  position: relative;
+  display: inline-block;
+  padding-right: 35px;
+  font-weight: 700;
+  font-family: "Myriad Pro", $reserve-font-family;
+  letter-spacing: $spread-letter-spacing;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 2px solid currentColor;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 25px;
+    height: 2px;
+    background-color: currentColor;
+    transform: translateY(-50%);
+  }
+}

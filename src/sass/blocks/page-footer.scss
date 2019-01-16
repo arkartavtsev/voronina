@@ -1,0 +1,15 @@
+.page-footer {
+  padding: 35px $mobile-padding $mobile-section-margin;
+}
+
+@include tablet {
+  .page-footer {
+    padding: 35px $tablet-padding 85px;
+  }
+}
+
+@include desktop {
+  .page-footer {
+    padding: 35px $desktop-padding 85px;
+  }
+}

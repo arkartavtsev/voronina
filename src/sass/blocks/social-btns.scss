@@ -1,0 +1,28 @@
+.social-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 26px;
+  margin: 0;
+  margin-bottom: -26px;
+}
+
+.social-btns__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 26px;
+  margin-bottom: 26px;
+  background-color: $dark-gray;
+}
+
+.social-btns__btn-logo {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: white;
+}

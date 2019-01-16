@@ -1,0 +1,32 @@
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
+
+$desktop-full-width: 1440px;
+$desktop-width: 1120px;
+$tablet-width: 768px;
+$mobile-only-width: $tablet-width - 1px;
+$mobile-min-width: 320px;
+
+// 20 / 320
+$mobile-padding: 6.25%;
+// 64 / 768
+$tablet-padding: 8.334%;
+// 10 / 1120
+$desktop-padding: 0.8928571429%;
+$desktop-padding: 10px;
+$desktop-full-padding: 170px;
+
+$mobile-section-margin: 80px;
+$tablet-section-margin: 100px;
+$desktop-section-margin: 120px;
+
+$reserve-font-family: "Arial", sans-serif;
+$spread-letter-spacing: 0.1em;
+
+
+$light-black: #1c1c1c;
+$green: #709c54;
+$dark-gray: #4e4e4e;
+$gray: #878787;
+$light-gray: #f8f8f8;
+$mauve: #cb98a8;
