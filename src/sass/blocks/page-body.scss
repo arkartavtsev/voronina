@@ -5,6 +5,13 @@
   line-height: 1.5;
   font-family: "Source Serif Pro", $reserve-font-family;
   color: $light-black;
+
+  &--no-scroll {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 

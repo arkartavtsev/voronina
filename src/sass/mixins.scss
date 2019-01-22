@@ -4,6 +4,12 @@
   }
 }
 
+@mixin not-desktop {
+  @media (max-width: $desktop-width - 1) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: $desktop-width) {
     @content;

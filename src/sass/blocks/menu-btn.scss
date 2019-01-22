@@ -1,0 +1,108 @@
+.menu-btn {
+  position: relative;
+  width: 65px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: 20px;
+  }
+
+  &::before {
+    top: 9px;
+    width: 26px;
+    height: 2px;
+    background-color: white;
+  }
+
+  &::after {
+    bottom: 9px;
+    width: 16px;
+    height: 4px;
+    border: 2px solid white;
+    border-left: none;
+    border-right: none;
+  }
+
+  &--close {
+    &::before,
+    &::after {
+      top: 14px;
+      bottom: auto;
+      width: 20px;
+      height: 2px;
+      border: none;
+      background-color: $light-black;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+@include tablet {
+  .menu-btn {
+    width: 256px;
+    height: 60px;
+
+    &::before,
+    &::after {
+      right: auto;
+      left: 120px;
+    }
+
+    &::before {
+      top: 23px;
+      background-color: $light-black;
+    }
+
+    &::after {
+      bottom: 23px;
+      border-color: $light-black;
+    }
+
+    &--close {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+
+      &::before,
+      &::after {
+        top: 28px;
+        right: auto;
+        bottom: auto;
+        left: 20px;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+
+@include desktop {
+  .menu-btn {
+    display: none;
+  }
+}
