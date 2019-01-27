@@ -12,6 +12,27 @@
     height: 100%;
     overflow: hidden;
   }
+
+  // position: relative;
+  //
+  // &::before,
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   z-index: 1000;
+  //   top: 0;
+  //   bottom: 0;
+  //   width: 1px;
+  //   background-color: red;
+  // }
+  //
+  // &::before {
+  //   left: 6.25%;
+  // }
+  //
+  // &::after {
+  //   right: 6.25%;
+  // }
 }
 
 
