@@ -1,0 +1,36 @@
+@include desktop-full {
+  .section-counter {
+    width: 30px;
+    padding: 0 70px;
+  }
+
+
+  .section-counter__notch {
+    display: block;
+    width: 15px;
+    padding-bottom: 10px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    color: transparent;
+    box-shadow: 0 1px 0 0 $gray;
+    transition-property: width, font-weight, color, box-shadow;
+    transition-duration: 0.5s;
+
+    &:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
+
+    &:hover,
+    &--current {
+      color: $light-black;
+      box-shadow: 0 2px 0 0 currentColor;
+    }
+
+    &--current {
+      width: 100%;
+    }
+  }
+}

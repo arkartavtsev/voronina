@@ -22,9 +22,39 @@
   }
 }
 
+@mixin desktop-full {
+  @media (min-width: $desktop-full-width) {
+    @content;
+  }
+}
+
 
 @mixin retina {
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     @content;
+  }
+}
+
+
+@mixin rails ($indent) {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: red;
+  }
+
+  &::before {
+    left: $indent;
+  }
+
+  &::after {
+    right: $indent;
   }
 }

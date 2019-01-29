@@ -164,3 +164,10 @@
     padding-top: 40px;
   }
 }
+
+
+@media (min-width: $desktop-full-width) {
+  .intro {
+    padding: 160px 170px 40px;
+  }
+}
