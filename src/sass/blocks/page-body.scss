@@ -26,7 +26,7 @@
 }
 
 
-@include tablet {
+@include desktop {
   .page-body {
     font-size: 18px;
   }
@@ -35,7 +35,7 @@
     max-width: $desktop-full-width;
     margin: 0 auto;
 
-    @include rails(170px);
+    // @include rails(170px);
   }
 }
 
@@ -43,11 +43,23 @@
 @include desktop-full {
   .page-body__aside-block {
     position: fixed;
-    top: 50%;
+    top: calc(50% - 70px);
     transform: translateY(-50%);
 
     &--shown {
       display: block;
+    }
+  }
+
+  .page-body__social-links {
+    padding: 77px 0;
+    transform-origin: left bottom;
+    transform: rotate(90deg) translateX(-137%);
+    transition: opacity 0.2s;
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
     }
   }
 }

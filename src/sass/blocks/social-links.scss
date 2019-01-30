@@ -1,6 +1,5 @@
 .social-links {
   display: flex;
-  flex-wrap: wrap;
   margin: 0;
 
   &--mobile-hidden {
@@ -18,6 +17,10 @@
   text-decoration: none;
   color: $gray;
   user-select: none;
+
+  &--mauve {
+    color: $mauve;
+  }
 
   &:not(:last-of-type) {
     position: relative;
