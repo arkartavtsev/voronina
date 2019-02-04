@@ -18,6 +18,16 @@
   margin-right: 26px;
   margin-bottom: 26px;
   background-color: $dark-gray;
+  transition: background-color $transition-duration;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $green;
+  }
 }
 
 .social-btns__btn-logo {
@@ -25,4 +35,21 @@
   width: 18px;
   height: 18px;
   fill: white;
+}
+
+
+@include desktop {
+  .social-btns__btn {
+    &:focus:not(.focus-visible) {
+      background-color: $dark-gray;
+    }
+
+    &:hover:not(.focus-visible) {
+      background-color: $green;
+    }
+
+    &:active:not(.focus-visible) {
+      background-color: $dark-gray;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 // полифилы
 // third-party/picturefill.js
 // third-party/svgxuse.js
+//= third-party/focus-visible.js
 
 
 //= modules/constants.js

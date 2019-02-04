@@ -19,6 +19,33 @@
 }
 
 .contact__data {
+  color: $light-black;
   text-decoration: none;
-  color: inherit;
+  transition: color $transition-duration;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active,
+  &:focus {
+    color: $green;
+  }
+}
+
+
+@include desktop {
+  .contact__data {
+    &:focus:not(.focus-visible) {
+      color: $light-black;
+    }
+
+    &:hover:not(.focus-visible) {
+      color: $green;
+    }
+
+    &:active:not(.focus-visible) {
+      color: $light-black;
+    }
+  }
 }

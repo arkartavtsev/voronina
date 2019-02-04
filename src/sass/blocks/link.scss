@@ -7,8 +7,9 @@
   letter-spacing: $spread-letter-spacing;
   text-transform: uppercase;
   text-decoration: none;
-  color: inherit;
+  color: currentColor;
   border-bottom: 2px solid currentColor;
+  transition: color $transition-duration;
 
   &::after {
     content: "";
@@ -19,5 +20,32 @@
     height: 2px;
     background-color: currentColor;
     transform: translateY(-50%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active,
+  &:focus {
+    color: $green;
+  }
+}
+
+
+@include desktop {
+  .link {
+    &:focus:not(.focus-visible) {
+      color: currentColor;
+    }
+
+    &:hover:not(.focus-visible),
+    &:focus {
+      color: $green;
+    }
+
+    &:active:not(.focus-visible) {
+      color: currentColor;
+    }
   }
 }

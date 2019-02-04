@@ -16,11 +16,8 @@
   text-transform: uppercase;
   text-decoration: none;
   color: $gray;
+  transition: color $transition-duration;
   user-select: none;
-
-  &--mauve {
-    color: $mauve;
-  }
 
   &:not(:last-of-type) {
     position: relative;
@@ -33,11 +30,28 @@
       left: calc(100% + 5px);
       width: 10px;
       height: 2px;
-      background-color: currentColor;
+      background-color: $gray;
       transform: translateY(-50%);
       cursor: default;
       pointer-events: none;
     }
+  }
+
+  &--mauve {
+    color: $mauve;
+  }
+
+  &--mauve:not(:last-of-type)::after {
+    background-color: $mauve;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active,
+  &:focus {
+    color: $light-black;
   }
 }
 
@@ -54,5 +68,30 @@
 @include desktop {
   .social-links__link {
     font-size: 14px;
+
+    &:focus:not(.focus-visible) {
+      color: $gray;
+    }
+
+    &:hover:not(.focus-visible) {
+      color: $light-black;
+    }
+
+    &:active:not(.focus-visible) {
+      color: $gray;
+    }
+
+    &--mauve:active,
+    &--mauve:focus:not(.focus-visible) {
+      color: $mauve;
+    }
+
+    &--mauve:hover:not(.focus-visible) {
+      color: $light-black;
+    }
+
+    &--mauve:active:not(.focus-visible) {
+      color: $mauve;
+    }
   }
 }

@@ -45,6 +45,16 @@
   text-decoration: none;
   color: inherit;
   border-bottom: 4px solid $green;
+  transition: color $transition-duration;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active,
+  &:focus {
+    color: $green;
+  }
 }
 
 
@@ -106,6 +116,20 @@
   }
 
   .main-nav__link {
+    color: $gray;
     border-bottom: none;
+
+    &:focus:not(.focus-visible) {
+      color: $gray;
+    }
+
+    &:hover:not(.focus-visible),
+    &:focus {
+      color: $light-black;
+    }
+
+    &:active:not(.focus-visible) {
+      color: $gray;
+    }
   }
 }
