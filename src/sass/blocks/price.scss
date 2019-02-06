@@ -15,8 +15,37 @@
   margin-left: 20px;
 }
 
+.price__leaf {
+  display: none;
+}
+
 
 @include tablet {
+  .price {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 2px;
+      background-color: $light-gray;
+    }
+
+    &::before {
+      top: 70px;
+      left: $tablet-rail-indent;
+      bottom: -100px;
+    }
+
+    &::after {
+      top: -50px;
+      right: $tablet-rail-indent;
+      bottom: 0;
+    }
+  }
+
   .price__list {
     justify-content: space-between;
     margin-left: 0;
@@ -24,5 +53,49 @@
 
   .price__list-item {
     margin-left: 0;
+  }
+
+  .price__leaf {
+    display: block;
+    position: absolute;
+
+    &--left {
+      top: 70px;
+      left: $tablet-rail-indent;
+      transform: translate(-50%, -50%) rotate(20deg);
+    }
+
+    &--right {
+      top: -40px;
+      right: $tablet-rail-indent;
+      transform: translate(50%, -50%) rotate(-90deg);
+    }
+  }
+}
+
+
+@include desktop {
+  .price {
+    &::before {
+      top: 70px;
+      left: $desktop-rail-indent;
+      bottom: -100px;
+    }
+
+    &::after {
+      top: -50px;
+      right: $desktop-rail-indent;
+      bottom: 0;
+    }
+  }
+
+  .price__leaf {
+    &--left {
+      left: $desktop-rail-indent;
+    }
+
+    &--right {
+      right: $desktop-rail-indent;
+    }
   }
 }

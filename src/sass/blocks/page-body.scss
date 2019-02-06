@@ -18,10 +18,43 @@
   display: none;
 }
 
+.page-body__container {
+  max-width: $desktop-full-width;
+  margin: 0 auto;
+
+  &--inner {
+    max-width: $desktop-width;
+  }
+}
+
 
 @include tablet {
   .page-body {
     font-size: 16px;
+  }
+
+  .page-body__container--inner {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      // FIXME: сделать отступ через паддинг
+      top: -100px;
+      bottom: 0;
+      width: 2px;
+      background-color: $light-gray;
+    }
+
+    &::before {
+      left: $tablet-padding;
+    }
+
+    &::after {
+      right: $tablet-padding;
+    }
   }
 }
 
@@ -31,11 +64,16 @@
     font-size: 18px;
   }
 
-  .page-body__container {
-    max-width: $desktop-full-width;
-    margin: 0 auto;
+  .page-body__container--inner {
+    &::before {
+      top: -120px;
+      left: $desktop-padding;
+    }
 
-    // @include rails(170px);
+    &::after {
+      top: -120px;
+      right: $desktop-padding;
+    }
   }
 }
 

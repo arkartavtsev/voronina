@@ -52,9 +52,14 @@
   }
 }
 
+.about-me__leaf {
+  display: none;
+}
+
 
 @include tablet {
   .about-me {
+    position: relative;
     padding-left: $tablet-padding;
     padding-right: $tablet-padding;
   }
@@ -102,6 +107,23 @@
 
     &--second {
       padding-top: 30px;
+    }
+  }
+
+  .about-me__leaf {
+    display: block;
+    position: absolute;
+
+    &--left {
+      top: 100px;
+      left: $tablet-rail-indent;
+      transform: translate(-50%, -50%) rotate(20deg);
+    }
+
+    &--right {
+      top: 0;
+      right: $tablet-rail-indent;
+      transform: translate(50%, -50%) rotate(40deg);
     }
   }
 }
@@ -159,6 +181,17 @@
 
     &--second {
       padding-top: 0;
+    }
+  }
+
+  .about-me__leaf {
+    &--left {
+      top: 80px;
+      left: $desktop-rail-indent;
+    }
+
+    &--right {
+      right: $desktop-rail-indent;
     }
   }
 }

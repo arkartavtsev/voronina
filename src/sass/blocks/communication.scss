@@ -10,6 +10,46 @@
   }
 }
 
+.communication__leaf {
+  display: none;
+}
+
+
+@include tablet {
+  .communication {
+    position: relative;
+  }
+
+  .communication__leaf {
+    display: block;
+    position: absolute;
+
+    &--left {
+      top: 250px;
+      left: $tablet-padding;
+      transform: translate(-50%, -50%) rotate(30deg);
+    }
+
+    &--middle-left {
+      top: 45px;
+      left: $tablet-rail-indent;
+      transform: translate(-50%, -50%) rotate(20deg);
+    }
+
+    &--middle-right {
+      top: -50px;
+      right: $tablet-rail-indent;
+      transform: translate(50%, -50%) rotate(-100deg);
+    }
+
+    &--right {
+      top: 210px;
+      right: $tablet-padding;
+      transform: translate(50%, -50%);
+    }
+  }
+}
+
 
 @include desktop {
   .communication__container {
@@ -35,5 +75,25 @@
 
   .communication__contact {
     margin-bottom: 0;
+  }
+
+  .communication__leaf {
+    &--left {
+      top: 150px;
+      left: 0;
+    }
+
+    &--middle-left {
+      left: $desktop-rail-indent;
+    }
+
+    &--middle-right {
+      right: $desktop-rail-indent;
+    }
+
+    &--right {
+      top: 170px;
+      right: 0;
+    }
   }
 }
