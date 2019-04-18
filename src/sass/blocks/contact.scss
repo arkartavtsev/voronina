@@ -11,7 +11,7 @@
   &::after {
     content: "///";
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     left: 100%;
     letter-spacing: 2px;
     color: $green;
@@ -19,7 +19,7 @@
 }
 
 .contact__data {
-  color: $light-black;
+  color: inherit;
   text-decoration: none;
   transition: color $transition-duration;
 
@@ -30,6 +30,14 @@
   &:active,
   &:focus {
     color: $green;
+  }
+}
+
+
+@include tablet {
+  .contact__type {
+    padding-right: 20px;
+    margin-right: 30px;
   }
 }
 

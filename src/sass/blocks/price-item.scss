@@ -1,12 +1,11 @@
 .price-item {
-  width: 280px;
-
   &::before {
     content: "";
     display: block;
     width: 100%;
     padding-top: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    background-color: rgba(black, 0.2%);
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,7 +39,7 @@
 .price-item__header {
   display: flex;
   flex-wrap: wrap;
-  max-width: 200px;
+  width: 200px;
   margin: 0 auto;
   margin-bottom: 10px;
   color: $green;
@@ -76,25 +75,21 @@
 }
 
 .price-item__list-of-works {
-  max-width: 260px;
-  padding: 0;
+  padding: 0 10px;
   margin: 0 auto;
   text-align: center;
   list-style: none;
 }
 
+.price-item__work {
+  margin-bottom: 8px;
+}
+
 
 @include tablet {
   .price-item {
-    width: 31.25%;
-
     &::before {
       padding-top: 150%;
-    }
-
-    &--first,
-    &--third {
-      padding-top: 100px;
     }
 
     &--first::before {
@@ -123,8 +118,8 @@
   }
 
   .price-item__header {
-    max-width: 230px;
-    padding: 0 10px;
+    width: 90%;
+    max-width: 220px;
   }
 
   .price-item__title {
@@ -134,23 +129,11 @@
   .price-item__value {
     font-size: 20px;
   }
-
-  .price-item__list-of-works {
-    max-width: none;
-    padding: 0 10px;
-  }
 }
 
 
 @include desktop {
   .price-item {
-    width: 340px;
-
-    &--first,
-    &--third {
-      padding-top: 150px;
-    }
-
     &--first::before {
       background-image: url("../img/price-1-bg-desktop@1x.jpg");
 
@@ -176,10 +159,6 @@
     }
   }
 
-  .price-item__header {
-    width: 280px;
-  }
-
   .price-item__title {
     font-size: 22px;
   }
@@ -190,6 +169,7 @@
 
   .price-item__list-of-works {
     width: 280px;
+    padding: 0;
     margin: 0 auto;
   }
 }

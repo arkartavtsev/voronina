@@ -1,15 +1,15 @@
 .page-footer {
-  padding: 35px $mobile-padding $mobile-section-margin;
+  padding: 40px $mobile-padding 50px;
 }
 
 @include tablet {
   .page-footer {
-    padding: 35px $tablet-padding 85px;
+    padding: 60px $tablet-padding 80px;
   }
 }
 
 @include desktop {
   .page-footer {
-    padding: 35px $desktop-padding 85px;
+    padding: 60px $desktop-padding 80px;
   }
 }

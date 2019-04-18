@@ -7,21 +7,20 @@ $tablet-width: 768px;
 $mobile-only-width: $tablet-width - 1px;
 $mobile-min-width: 320px;
 
-// 20 / 320
-$mobile-padding: 6.25%;
+$desktop-full-padding: 170px;
+$desktop-padding: 10px;
 // 64 / 768
 $tablet-padding: 8.334%;
-// 10 / 1120
-$desktop-padding: 0.8928571429%;
-$desktop-padding: 10px;
-$desktop-full-padding: 170px;
+// 20 / 320
+$mobile-padding: 6.25%;
 
-$mobile-section-margin: 80px;
-$tablet-section-margin: 100px;
-$desktop-section-margin: 120px;
+$desktop-section-indent: 120px;
+$tablet-section-indent: 80px;
+$mobile-section-indent: 60px;
 
-$tablet-rail-indent: 26%;
 $desktop-rail-indent: 240px;
+// 200 / 768
+$tablet-rail-indent: 26.042%;
 
 $reserve-font-family: "Arial", sans-serif;
 $spread-letter-spacing: 0.1em;

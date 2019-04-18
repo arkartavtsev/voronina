@@ -2,6 +2,7 @@
   position: relative;
   display: inline-block;
   padding-right: 35px;
+  padding-bottom: 2px;
   font-weight: 700;
   font-family: "Myriad Pro", $reserve-font-family;
   letter-spacing: $spread-letter-spacing;
@@ -9,12 +10,14 @@
   text-decoration: none;
   color: currentColor;
   border-bottom: 2px solid currentColor;
-  transition: color $transition-duration;
+  transition-property: color, border-color;
+  transition-duration: $transition-duration;
+  user-select: none;
 
   &::after {
     content: "";
     position: absolute;
-    top: 50%;
+    top: calc(50% - 3px);
     right: 0;
     width: 25px;
     height: 2px;

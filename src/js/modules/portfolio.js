@@ -6,76 +6,124 @@
 
 
   if (portfolio) {
-    portfolio.classList.add('portfolio--js');
-
     var itemsContainerWrapper = portfolio.querySelector('.portfolio__samples-wrapper');
     var itemsContainer = portfolio.querySelector('.portfolio__samples');
+
     var items = itemsContainer.querySelectorAll('.portfolio__portfolio-item');
+    var firstItem = items[0];
+    var lastItem = items[items.length - 1];
 
-    var itemWidth = items[0].offsetWidth;
 
-
-    var swipeLeft = function () {
-      var offset = items[items.length - 1].getBoundingClientRect().right - itemsContainerWrapper.getBoundingClientRect().right >= itemWidth ? itemWidth : items[items.length - 1].getBoundingClientRect().right + parseFloat(getComputedStyle(itemsContainer).paddingRight) - itemsContainerWrapper.getBoundingClientRect().right;
-
-      var position = parseInt(getComputedStyle(itemsContainer).left, 10);
-
-      position -= offset;
-
-      itemsContainer.style.left = position + 'px';
-    };
-
-    var swipeRight = function () {
-      var offset = itemsContainerWrapper.getBoundingClientRect().left - items[0].getBoundingClientRect().left < itemWidth ? itemsContainerWrapper.getBoundingClientRect().left - items[0].getBoundingClientRect().left + parseFloat(getComputedStyle(itemsContainer).paddingLeft) : itemWidth;
-
-      var position = parseInt(getComputedStyle(itemsContainer).left, 10);
-
-      position += offset;
-
-      itemsContainer.style.left = position + 'px';
+    var isSliderNeeded = function () {
+      return items.length && firstItem.offsetWidth * (items.length - 1) + lastItem.offsetWidth > itemsContainerWrapper.offsetWidth;
     };
 
 
-    var handleTouchStart = function (evt) {
-      xDown = evt.touches[0].clientX;
-      yDown = evt.touches[0].clientY;
-    };
+    if (isSliderNeeded()) {
+      portfolio.classList.add('portfolio--js');
 
-    var handleTouchMove = function (evt) {
-      if (!xDown || !yDown) {
-        return;
-      }
 
-      var xUp = evt.touches[0].clientX;
-      var yUp = evt.touches[0].clientY;
+      var Item = null;
+      var Edge = null;
 
-      var xDiff = xDown - xUp;
-      var yDiff = yDown - yUp;
+      var windowWidth = null;
 
-      if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        if (Math.abs(yDiff) > 0) {
-          evt.preventDefault();
+      var xDown = null;
+      var yDown = null;
+
+
+      var defineParams = function () {
+        windowWidth = document.documentElement.clientWidth;
+
+        Item = {
+          WIDTH: firstItem.offsetWidth,
+          PADDING: parseFloat(getComputedStyle(firstItem).paddingRight)
+        };
+
+        Edge = {
+          LEFT: itemsContainerWrapper.getBoundingClientRect().left,
+          RIGHT: itemsContainerWrapper.getBoundingClientRect().right
+        };
+
+        itemsContainer.style.left = 0;
+      };
+
+
+      var scrollSliderTape = function (offset) {
+        var position = parseInt(getComputedStyle(itemsContainer).left, 10);
+
+        position += offset;
+        itemsContainer.style.left = position + 'px';
+      };
+
+      var showNextSlide = function () {
+        var offset = lastItem.getBoundingClientRect().right - Edge.RIGHT >= Item.WIDTH ?
+          -Item.WIDTH
+          :
+          Edge.RIGHT - lastItem.getBoundingClientRect().right - Item.PADDING;
+
+        scrollSliderTape(offset);
+      };
+
+      var showPrevSlide = function () {
+        var offset = Edge.LEFT - firstItem.getBoundingClientRect().left < Item.WIDTH ?
+          Edge.LEFT - firstItem.getBoundingClientRect().left + Item.PADDING
+          :
+          Item.WIDTH;
+
+        scrollSliderTape(offset);
+      };
+
+
+      var handleTouchStart = function (evt) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+      };
+
+      var handleTouchMove = function (evt) {
+        if (!xDown || !yDown) {
+          return;
         }
 
-        if (xDiff > 0) {
-          swipeLeft();
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+          if (Math.abs(yDiff) > 0) {
+            evt.preventDefault();
+          }
+
+          if (xDiff > 0) {
+            showNextSlide();
+          }
+
+          if (xDiff < 0) {
+            showPrevSlide();
+          }
         }
 
-        if (xDiff < 0) {
-          swipeRight();
+        xDown = null;
+        yDown = null;
+      };
+
+
+      var onWindowResize = function () {
+        if (windowWidth !== document.documentElement.clientWidth) {
+          defineParams();
         }
-      }
-
-      xDown = null;
-      yDown = null;
-    };
+      };
 
 
-    itemsContainerWrapper.addEventListener('touchstart', handleTouchStart);
-    itemsContainerWrapper.addEventListener('touchmove', handleTouchMove);
+      defineParams();
 
 
-    var xDown = null;
-    var yDown = null;
+      itemsContainerWrapper.addEventListener('touchstart', handleTouchStart);
+      itemsContainerWrapper.addEventListener('touchmove', handleTouchMove);
+
+      window.addEventListener('resize', onWindowResize);
+    }
   }
 })();

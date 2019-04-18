@@ -11,9 +11,10 @@
   &::after {
     content: "";
     position: absolute;
+    // 155 / 320
     width: 48.4375%;
     height: 300px;
-    background-color: #a2afcb;
+    background-color: rgba(black, 0.2%);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -48,7 +49,15 @@
 
 .about-me__text-group {
   &--first {
-    margin-bottom: 25px;
+    margin-bottom: 18px;
+  }
+}
+
+.about-me__text {
+  margin: 0;
+
+  &:not(:last-child) {
+    margin-bottom: 18px;
   }
 }
 
@@ -65,7 +74,7 @@
   }
 
   .about-me__container {
-    padding-top: 440px;
+    padding-top: 450px;
 
     &::before,
     &::after {
@@ -81,6 +90,7 @@
     }
 
     &::after {
+      top: 50px;
       background-image: url("../img/about-me-bg-right-tablet@1x.jpg");
 
       @include retina {
@@ -98,15 +108,25 @@
   }
 
   .about-me__text-group {
+    box-sizing: border-box;
     // 310 / 640
     width: 48.4375%;
+    padding: 0 10px;
 
     &--first {
       margin-bottom: 0;
     }
 
     &--second {
-      padding-top: 30px;
+      padding-top: 50px;
+    }
+  }
+
+  .about-me__text {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
     }
   }
 
@@ -115,13 +135,13 @@
     position: absolute;
 
     &--left {
-      top: 100px;
+      top: 80px;
       left: $tablet-rail-indent;
       transform: translate(-50%, -50%) rotate(20deg);
     }
 
     &--right {
-      top: 0;
+      top: 40px;
       right: $tablet-rail-indent;
       transform: translate(50%, -50%) rotate(40deg);
     }
@@ -136,7 +156,8 @@
   }
 
   .about-me__container {
-    padding-top: 75px;
+    padding-top: 80px;
+    padding-bottom: 84px;
 
     &::before,
     &::after {
@@ -145,8 +166,6 @@
     }
 
     &::before {
-      top: 0;
-      left: 0;
       background-image: url("../img/about-me-bg-left-desktop@1x.jpg");
 
       @include retina {
@@ -155,6 +174,7 @@
     }
 
     &::after {
+      top: 40px;
       left: 345px;
       background-image: url("../img/about-me-bg-right-desktop@1x.jpg");
 
@@ -166,17 +186,19 @@
 
   .about-me__content {
     display: block;
-    width: 355px;
-    padding: 40px 40px 125px 548px;
+    width: 360px;
+    padding: 40px;
+    padding-left: 385px;
     margin-left: auto;
     background-color: $light-gray;
   }
 
   .about-me__text-group {
     width: 100%;
+    padding: 0;
 
     &--first {
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
 
     &--second {
@@ -184,9 +206,16 @@
     }
   }
 
+  .about-me__text {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 22px;
+    }
+  }
+
   .about-me__leaf {
     &--left {
-      top: 80px;
       left: $desktop-rail-indent;
     }
 

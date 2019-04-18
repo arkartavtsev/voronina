@@ -1,0 +1,35 @@
+.page-main {
+  padding-top: $mobile-section-indent;
+}
+
+.page-main__section {
+  &:not(:last-of-type) {
+    margin-bottom: $mobile-section-indent;
+  }
+}
+
+
+@include tablet {
+  .page-main {
+    padding-top: $tablet-section-indent;
+  }
+
+  .page-main__section {
+    &:not(:last-of-type) {
+      margin-bottom: $tablet-section-indent;
+    }
+  }
+}
+
+
+@include desktop {
+  .page-main {
+    padding-top: $desktop-section-indent;
+  }
+
+  .page-main__section {
+    &:not(:last-of-type) {
+      margin-bottom: $desktop-section-indent;
+    }
+  }
+}

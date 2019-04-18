@@ -1,9 +1,7 @@
 .section {
-  padding: 0 $mobile-padding;
-
-  &:not(:last-of-type) {
-    margin-bottom: $mobile-section-margin;
-  }
+  padding-top: 30px;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
 
   &--no-side-paddings {
     padding-left: 0;
@@ -16,7 +14,7 @@
   width: 100%;
   padding-top: 60px;
   margin: 0;
-  margin-bottom: 45px;
+  margin-bottom: 40px;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.2;
@@ -39,11 +37,9 @@
 
 @include tablet {
   .section {
-    padding: 0 $tablet-padding;
-
-    &:not(:last-of-type) {
-      margin-bottom: $tablet-section-margin;
-    }
+    padding-top: 40px;
+    padding-left: $tablet-padding;
+    padding-right: $tablet-padding;
 
     &--no-side-paddings {
       padding-left: 0;
@@ -52,7 +48,7 @@
   }
 
   .section__title {
-    padding-top: 100px;
+    padding-top: 80px;
     margin-bottom: 60px;
     font-size: 24px;
 
@@ -65,22 +61,17 @@
 
 @include desktop {
   .section {
-    box-sizing: border-box;
-    max-width: $desktop-width;
-    padding: 0 $desktop-padding;
-    margin: 0 auto;
-
-    &:not(:last-of-type) {
-      margin-bottom: $desktop-section-margin;
-    }
-
-    &--large {
-      max-width: $desktop-full-width;
-    }
+    padding-left: $desktop-padding;
+    padding-right: $desktop-padding;
 
     &--no-side-paddings {
       padding-left: 0;
       padding-right: 0;
     }
+  }
+
+  .section__title {
+    margin-bottom: 80px;
+    font-size: 36px;
   }
 }

@@ -16,7 +16,7 @@
     text-decoration: none;
     color: transparent;
     box-shadow: 0 1px 0 0 $gray;
-    transition-property: width, font-weight, color, box-shadow;
+    transition-property: width, color, box-shadow;
     transition-duration: 0.5s;
 
     &:not(:last-of-type) {
@@ -24,9 +24,14 @@
     }
 
     &:hover,
+    &:focus,
     &--current {
       color: $light-black;
       box-shadow: 0 2px 0 0 currentColor;
+    }
+
+    &:focus {
+      outline: none;
     }
 
     &--current {

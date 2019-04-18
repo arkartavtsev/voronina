@@ -2,7 +2,7 @@
   min-width: $mobile-min-width;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 18px;
   font-family: "Source Serif Pro", $reserve-font-family;
   color: $light-black;
 
@@ -19,11 +19,14 @@
 }
 
 .page-body__container {
+  position: relative;
   max-width: $desktop-full-width;
+  overflow: hidden;
   margin: 0 auto;
 
   &--inner {
     max-width: $desktop-width;
+    overflow: visible;
   }
 }
 
@@ -31,18 +34,16 @@
 @include tablet {
   .page-body {
     font-size: 16px;
+    line-height: 20px;
   }
 
   .page-body__container--inner {
-    position: relative;
-
     &::before,
     &::after {
       content: "";
       position: absolute;
       z-index: -1;
-      // FIXME: сделать отступ через паддинг
-      top: -100px;
+      top: 0;
       bottom: 0;
       width: 2px;
       background-color: $light-gray;
@@ -62,16 +63,15 @@
 @include desktop {
   .page-body {
     font-size: 18px;
+    line-height: 22px;
   }
 
   .page-body__container--inner {
     &::before {
-      top: -120px;
       left: $desktop-padding;
     }
 
     &::after {
-      top: -120px;
       right: $desktop-padding;
     }
   }
@@ -84,16 +84,22 @@
     top: calc(50% - 70px);
     transform: translateY(-50%);
 
-    &--shown {
-      display: block;
+    &--js {
+      display: flex;
     }
   }
 
+  .page-body__section-counter {
+    flex-direction: column;
+  }
+
   .page-body__social-links {
+    flex-wrap: nowrap;
     padding: 77px 0;
+    transform: translateY(-150%) rotate(90deg);
     transform-origin: left bottom;
-    transform: rotate(90deg) translateX(-137%);
-    transition: opacity 0.2s;
+    opacity: 1;
+    transition: opacity 0.4s;
 
     &--hidden {
       opacity: 0;

@@ -1,9 +1,4 @@
 .page-header {
-  position: relative;
-  margin-bottom: $mobile-section-margin;
-}
-
-.page-header__bar {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -18,42 +13,37 @@
   }
 }
 
-.page-header__tel {
+.page-header__main-nav {
+  order: 1;
+}
+
+.page-header__tel-wrapper {
   display: none;
 }
 
 
 @include tablet {
   .page-header {
-    margin-bottom: $tablet-section-margin;
-  }
-
-  .page-header__bar {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
     justify-content: flex-start;
   }
 
-  .page-header__logo {
-    position: static;
-    z-index: auto;
-  }
-
-  .page-header__main-nav {
-    order: 1;
+  .page-header__tel-wrapper {
+    display: block;
+    padding: 19px 0;
+    padding-right: $tablet-padding;
+    margin: 0;
+    margin-left: auto;
   }
 
   .page-header__tel {
     display: block;
-    padding: 21px 50px;
-    margin-left: auto;
     font-weight: 600;
     font-size: 18px;
-    line-height: 1;
+    line-height: 22px;
+    white-space: nowrap;
     color: inherit;
     text-decoration: none;
+    transition: color $transition-duration;
 
     &:focus {
       outline: none;
@@ -69,21 +59,23 @@
 
 @include desktop {
   .page-header {
-    position: relative;
-    max-width: $desktop-full-width;
-    margin: 0 auto;
-    margin-bottom: $desktop-section-margin;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
   }
 
   .page-header__main-nav {
     order: 0;
   }
 
-  .page-header__tel {
+  .page-header__tel-wrapper {
     padding: 29px 0;
-    margin-left: 80px;
+    margin-left: 70px;
+  }
+
+  .page-header__tel {
     color: $gray;
-    transition: color $transition-duration;
 
     &:hover,
     &:focus {

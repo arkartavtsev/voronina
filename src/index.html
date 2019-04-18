@@ -12,66 +12,68 @@
   <body class="page-body">
     <div class="page-body__container">
       <header class="page-header">
-        <div class="page-header__bar">
-          <span class="page-header__logo  logo" role="presentation">VORONINA.</span>
+        <span class="logo" role="presentation">VORONINA.</span>
 
-          <nav class="page-header__main-nav  main-nav">
-            <span class="main-nav__leaf  main-nav__leaf--bottom-left  leaf  leaf--type-1"></span>
-            <span class="main-nav__leaf  main-nav__leaf--top-right  leaf  leaf--type-2"></span>
+        <button class="menu-btn" type="button" hidden>
+          <span class="menu-btn__text  visually-hidden">Открыть меню</span>
+          <span class="menu-btn__icon"></span>
+        </button>
 
-            <ul class="main-nav__list">
-              <li class="main-nav__item  main-nav__item--desktop-hidden">
-                <a class="main-nav__link" href="#portfolio">Портфолио</a>
-              </li>
-              <li class="main-nav__item">
-                <a class="main-nav__link" href="#about-me">Обо мне</a>
-              </li>
-              <li class="main-nav__item">
-                <a class="main-nav__link" href="#price">Стоимость</a>
-              </li>
-              <li class="main-nav__item">
-                <a class="main-nav__link" href="#communication">Контакты</a>
-              </li>
-            </ul>
-          </nav>
+        <nav class="page-header__main-nav  main-nav">
+          <span class="main-nav__leaf  main-nav__leaf--bottom-left  leaf  leaf--type-1"></span>
+          <span class="main-nav__leaf  main-nav__leaf--top-right  leaf  leaf--type-2"></span>
 
-          <button class="page-header__menu-btn  menu-btn" type="button" hidden>
-            <span class="menu-btn__text  visually-hidden">Открыть меню</span>
-          </button>
+          <ul class="main-nav__list">
+            <li class="main-nav__item  main-nav__item--desktop-hidden">
+              <a class="main-nav__link" href="#portfolio">Портфолио</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="#about-me">Обо мне</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="#price">Стоимость</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="#communication">Контакты</a>
+            </li>
+          </ul>
+        </nav>
 
+        <p class="page-header__tel-wrapper">
+          <span class="visually-hidden">Телефон для связи:</span>
           <a class="page-header__tel" href="tel:+79166677112">+ 7 916 66 77 112</a>
+        </p>
+      </header>
+
+      <section id="intro" class="counted-section  intro">
+        <div class="intro__presentation">
+          <h1 class="intro__title">Дарья Воронина</h1>
+          <p class="intro__text">Food&nbsp;&ndash;&nbsp;фотограф и&nbsp;food&nbsp;&ndash;&nbsp;стилист в&nbsp;Москве и&nbsp;Московской области</p>
+
+          <a class="link" href="#portfolio">
+            <span class="visually-hidden">Перейти к</span>
+            портфолио
+          </a>
         </div>
 
-        <section id="intro" class="intro  js-section">
-          <div class="intro__presentation">
-            <h1 class="intro__title">Дарья Воронина</h1>
-            <p class="intro__text">Food&nbsp;&ndash;&nbsp;фотограф и&nbsp;food&nbsp;&ndash;&nbsp;стилист в&nbsp;Москве и&nbsp;Московской области</p>
+        <picture class="intro__photo-container">
+          <!-- <source type="image/webp" media="(min-width: 768px)" srcset="img/intro-photo-tablet-desktop@1x.webp 1x, img/intro-photo-tablet-desktop@2x.webp 2x">
+          <source type="image/webp" srcset="img/intro-photo-mobile@1x.webp 1x, img/intro-photo-mobile@2x.webp 2x"> -->
 
-            <a class="link" href="#portfolio">
-              <span class="visually-hidden">Перейти к</span>
-              портфолио
-            </a>
-          </div>
+          <source media="(min-width: 768px)" srcset="img/intro-photo-tablet-desktop@1x.jpg 1x, img/intro-photo-tablet-desktop@2x.jpg 2x">
+          <img class="intro__photo" width="320" height="480" src="img/intro-photo-mobile@1x.jpg" srcset="img/intro-photo-mobile@2x.jpg 2x" alt="Дарья Воронина">
+        </picture>
 
-          <picture class="intro__photo-container">
-            <!-- <source type="image/webp" media="(min-width: 768px)" srcset="img/intro-photo-tablet-desktop@1x.webp 1x, img/intro-photo-tablet-desktop@2x.webp 2x">
-            <source type="image/webp" srcset="img/intro-photo-mobile@1x.webp 1x, img/intro-photo-mobile@2x.webp 2x"> -->
-
-            <source media="(min-width: 768px)" srcset="img/intro-photo-tablet-desktop@1x.jpg 1x, img/intro-photo-tablet-desktop@2x.jpg 2x">
-            <img class="intro__photo" width="320" height="480" src="img/intro-photo-mobile@1x.jpg" srcset="img/intro-photo-mobile@2x.jpg 2x" alt="Дарья Воронина">
-          </picture>
-
-          <p class="intro__social-links  social-links  social-links--mobile-hidden">
-            <span class="visually-hidden">Я в социальных сетях:</span>
-            <a class="social-links__link" href="https://www.instagram.com" target="_blank">Instagram</a>
-            <a class="social-links__link" href="https://www.facebook.com" target="_blank">Facebook</a>
-          </p>
-        </section>
-      </header>
+        <p class="intro__social-links  social-links  social-links--mobile-hidden">
+          <span class="visually-hidden">Я в социальных сетях:</span>
+          <a class="social-links__link" href="https://www.instagram.com" target="_blank">Instagram</a>
+          <a class="social-links__link" href="https://www.facebook.com" target="_blank">Facebook</a>
+        </p>
+      </section>
 
       <div class="page-body__container  page-body__container--inner">
         <main class="page-main">
-          <section id="portfolio" class="portfolio  section  section--large  section--no-side-paddings  js-section">
+          <section id="portfolio" class="counted-section  portfolio  section  section--no-side-paddings  page-main__section">
             <span class="portfolio__leaf  portfolio__leaf--left  leaf  leaf--type-2"></span>
             <span class="portfolio__leaf  portfolio__leaf--middle-left  leaf  leaf--type-3"></span>
             <span class="portfolio__leaf  portfolio__leaf--right  leaf  leaf--type-1"></span>
@@ -94,7 +96,7 @@
 
                   <figcaption class="portfolio-item__description">
                     <p class="portfolio-item__hashtags">#cоцсети</p>
-                    <p class="portfolio-item__caption">Фото-контент для социальных сетей кондитерской &laquo;Леди Мармелад&raquo;</p>
+                    <p class="portfolio-item__caption">Фото-контент для социальных сетей кондитерской &laquo;Леди&nbsp;Мармелад&raquo;</p>
                   </figcaption>
                 </figure>
 
@@ -110,7 +112,7 @@
 
                   <figcaption class="portfolio-item__description">
                     <p class="portfolio-item__hashtags">#cоцсети</p>
-                    <p class="portfolio-item__caption">Фото-контент для инстаграма ресторана &laquo;Funky Food&raquo;</p>
+                    <p class="portfolio-item__caption">Фото-контент для инстаграма ресторана &laquo;Funky&nbsp;Food&raquo;</p>
                   </figcaption>
                 </figure>
 
@@ -126,7 +128,7 @@
 
                   <figcaption class="portfolio-item__description">
                     <p class="portfolio-item__hashtags">#менюресторана</p>
-                    <p class="portfolio-item__caption">Съемка меню ресторана &laquo;Хорошая еда&raquo;</p>
+                    <p class="portfolio-item__caption">Съемка меню ресторана &laquo;Хорошая&nbsp;еда&raquo;</p>
                   </figcaption>
                 </figure>
 
@@ -151,11 +153,11 @@
             <section class="portfolio-details">
               <div class="portfolio-details__content">
                 <h3 class="portfolio-details__title">Подробное портфолио</h3>
-                <p class="portfolio-details__text  text-paragraph">С&nbsp;описанием задач заказчика, полного процесса работы и&nbsp;финальным результатом</p>
+                <p class="portfolio-details__text">С&nbsp;описанием задач заказчика, полного процесса работы и&nbsp;финальным результатом</p>
 
                 <a class="link  link--mobile-white" href="#">
                   Скачать в&nbsp;PDF
-                  <svg class="portfolio-details__pdf-icon" width="24" height="27">
+                  <svg class="portfolio-details__pdf-icon" width="28" height="28">
                     <use xlink:href="img/sprite.svg#pdf"></use>
                   </svg>
                 </a>
@@ -163,7 +165,7 @@
             </section>
           </section>
 
-          <section id="about-me" class="about-me  section  js-section">
+          <section id="about-me" class="counted-section  about-me  section  page-main__section">
             <span class="about-me__leaf  about-me__leaf--left  leaf  leaf--type-2"></span>
             <span class="about-me__leaf  about-me__leaf--right  leaf  leaf--type-3"></span>
 
@@ -172,11 +174,11 @@
             <div class="about-me__container">
               <div class="about-me__content">
                 <div class="about-me__text-group  about-me__text-group--first">
-                  <p class="text-paragraph">Во&nbsp;всех фотосъемках я&nbsp;работаю как food-фотограф и&nbsp;food-стилист. Создаю креативные концепции, реализую ваши идеи. Разрабатываю рецепты и вкусно снимаю. Провожу обучение.</p>
+                  <p class="about-me__text">Во&nbsp;всех фотосъемках я&nbsp;работаю как food-фотограф и&nbsp;food-стилист. Создаю креативные концепции, реализую ваши идеи. Разрабатываю рецепты и вкусно снимаю. Провожу обучение.</p>
                 </div>
 
                 <div class="about-me__text-group  about-me__text-group--second">
-                  <p class="text-paragraph">Всегда открыта к&nbsp;сотрудничеству и&nbsp;рада новым предложениям!</p>
+                  <p class="about-me__text">Всегда открыта к&nbsp;сотрудничеству и&nbsp;рада новым предложениям!</p>
 
                   <a class="link" href="#communication">Работать со мной</a>
                 </div>
@@ -184,7 +186,7 @@
             </div>
           </section>
 
-          <section id="price" class="price  section  js-section">
+          <section id="price" class="counted-section  price  section  page-main__section">
             <span class="price__leaf  price__leaf--left  leaf  leaf--type-1"></span>
             <span class="price__leaf  price__leaf--right  leaf  leaf--type-4"></span>
 
@@ -192,7 +194,7 @@
 
             <div class="price__list-wrapper">
               <ul class="price__list">
-                <li class="price__list-item  price-item  price-item--first">
+                <li class="price__list-item  price__list-item--first  price-item  price-item--first">
                   <header class="price-item__header">
                     <h3 class="price-item__title">12&nbsp;часов съемки</h3>
                     <span class="price-item__value">30&nbsp;000 рублей</span>
@@ -204,11 +206,11 @@
                     <li class="price-item__work">Food&nbsp;&ndash;&nbsp;стилизация</li>
                     <li class="price-item__work">Расширенный реквизит</li>
                     <li class="price-item__work">Цветокоррекция и&nbsp;пост-обработка</li>
-                    <li class="price-item__work">Результаты в&nbsp;течение 3-х дней</li>
+                    <li class="price-item__work">Результаты в&nbsp;течение 3&#8209;х дней</li>
                   </ul>
                 </li>
 
-                <li class="price__list-item  price-item  price-item--second">
+                <li class="price__list-item  price__list-item--second  price-item  price-item--second">
                   <header class="price-item__header">
                     <h3 class="price-item__title">4 часа съемки</h3>
                     <span class="price-item__value">15&nbsp;000 рублей</span>
@@ -219,11 +221,11 @@
                     <li class="price-item__work">Food&nbsp;&ndash;&nbsp;стилизация</li>
                     <li class="price-item__work">Использование реквизита</li>
                     <li class="price-item__work">Цветокоррекция и&nbsp;пост-обработка</li>
-                    <li class="price-item__work">Результаты в&nbsp;течение 3-х дней</li>
+                    <li class="price-item__work">Результаты в&nbsp;течение 3&#8209;х дней</li>
                   </ul>
                 </li>
 
-                <li class="price__list-item  price-item  price-item--third">
+                <li class="price__list-item  price__list-item--third  price-item  price-item--third">
                   <header class="price-item__header">
                     <h3 class="price-item__title">1 час съемки</h3>
                     <span class="price-item__value">4&nbsp;000 рублей</span>
@@ -233,14 +235,14 @@
                     <li class="price-item__work">Food&nbsp;&ndash;&nbsp;стилизация</li>
                     <li class="price-item__work">Использование реквизита</li>
                     <li class="price-item__work">Цветокоррекция</li>
-                    <li class="price-item__work">Результаты в&nbsp;течение 5-ти дней</li>
+                    <li class="price-item__work">Результаты в&nbsp;течение 5&#8209;ти дней</li>
                   </ul>
                 </li>
               </ul>
             </div>
           </section>
 
-          <section id="communication" class="communication  section  js-section">
+          <section id="communication" class="counted-section  communication  section  page-main__section">
             <span class="communication__leaf  communication__leaf--left  leaf  leaf--type-4"></span>
             <span class="communication__leaf  communication__leaf--middle-left  leaf  leaf--type-2"></span>
             <span class="communication__leaf  communication__leaf--middle-right  leaf  leaf--type-3"></span>
@@ -299,14 +301,15 @@
       </div>
 
       <div class="page-body__aside-block  section-counter">
-        <a class="section-counter__notch" href="#intro" tabindex="1">01</a>
-        <a class="section-counter__notch" href="#portfolio" tabindex="2">02</a>
-        <a class="section-counter__notch" href="#about-me" tabindex="3">03</a>
-        <a class="section-counter__notch" href="#price" tabindex="4">04</a>
-        <a class="section-counter__notch" href="#communication" tabindex="5">05</a>
+        <span class="visually-hidden">Перейти к разделу:</span>
+        <a class="section-counter__notch" href="#intro">01</a>
+        <a class="section-counter__notch" href="#portfolio">02</a>
+        <a class="section-counter__notch" href="#about-me">03</a>
+        <a class="section-counter__notch" href="#price">04</a>
+        <a class="section-counter__notch" href="#communication">05</a>
       </div>
 
-      <p class="page-body__aside-block  page-body__aside-block--right  page-body__social-links  social-links">
+      <p class="page-body__aside-block  page-body__social-links  social-links">
         <span class="visually-hidden">Я в социальных сетях:</span>
         <a class="social-links__link  social-links__link--mauve" href="https://www.instagram.com" target="_blank">Instagram</a>
         <a class="social-links__link  social-links__link--mauve" href="https://www.facebook.com" target="_blank">Facebook</a>

@@ -1,5 +1,7 @@
 .social-links {
   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   margin: 0;
 
   &--mobile-hidden {
@@ -8,7 +10,8 @@
 }
 
 .social-links__link {
-  display: block;
+  display: flex;
+  align-items: center;
   font-weight: 300;
   font-size: 12px;
   line-height: 1.2;
@@ -20,18 +23,11 @@
   user-select: none;
 
   &:not(:last-of-type) {
-    position: relative;
-    margin-right: 20px;
-
     &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: calc(100% + 5px);
-      width: 10px;
-      height: 2px;
-      background-color: $gray;
-      transform: translateY(-50%);
+      content: "\2014";
+      display: block;
+      margin: 0 5px;
+      color: $gray;
       cursor: default;
       pointer-events: none;
     }
@@ -39,10 +35,10 @@
 
   &--mauve {
     color: $mauve;
-  }
 
-  &--mauve:not(:last-of-type)::after {
-    background-color: $mauve;
+    &:not(:last-of-type)::after {
+      color: $mauve;
+    }
   }
 
   &:focus {

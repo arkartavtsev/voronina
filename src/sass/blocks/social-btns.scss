@@ -38,6 +38,21 @@
 }
 
 
+@include tablet {
+  .social-btns {
+    padding-left: 34px;
+    margin-bottom: -34px;
+  }
+
+  .social-btns__btn {
+    width: 34px;
+    height: 34px;
+    margin-right: 34px;
+    margin-bottom: 34px;
+  }
+}
+
+
 @include desktop {
   .social-btns__btn {
     &:focus:not(.focus-visible) {
