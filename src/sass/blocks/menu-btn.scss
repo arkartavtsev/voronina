@@ -26,6 +26,9 @@
   }
 
   &--close {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 40px;
     color: $light-black;
   }
@@ -91,9 +94,6 @@
     color: $light-black;
 
     &--close {
-      position: absolute;
-      top: 0;
-      right: 0;
       width: 60px;
     }
   }
