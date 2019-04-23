@@ -37,7 +37,7 @@ gulp.task('copy', function () {
     'src/*.html',
     'src/font/**/*.{woff,woff2}',
     'src/js/**/*.js',
-    'src/img/*.{png,jpg,svg}',
+    'src/img/*',
     'src/video/*',
     'src/data/**/*'
   ], {
@@ -126,7 +126,7 @@ gulp.task('img:minify', function () {
 });
 
 gulp.task('img:svg-sprite', function() {
-  return gulp.src('src/img/sprite/*.svg')
+  return gulp.src('src/img/svg-sprite/*.svg')
     .pipe(imgMinify([
       imgMinify.svgo({
         plugins: [

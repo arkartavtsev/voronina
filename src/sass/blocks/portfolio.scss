@@ -164,7 +164,7 @@
   .portfolio__leaf {
     &--left {
       top: 200px;
-      left: 0;
+      left: $desktop-padding;
     }
 
     &--middle-left {
@@ -173,7 +173,7 @@
 
     &--right {
       top: 240px;
-      right: 0;
+      right: $desktop-padding;
     }
   }
 }
