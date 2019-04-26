@@ -214,12 +214,19 @@ main {
             transition-duration: 0.5s; }
     .section-counter__notch:not(:last-of-type) {
       margin-bottom: 15px; }
-    .section-counter__notch:hover, .section-counter__notch:focus, .section-counter__notch--current {
+    .section-counter__notch:focus {
+      color: #1c1c1c;
+      -webkit-box-shadow: 0 2px 0 0 currentColor;
+              box-shadow: 0 2px 0 0 currentColor;
+      outline: none; }
+    .section-counter__notch:focus:not(.focus-visible) {
+      color: transparent;
+      -webkit-box-shadow: 0 1px 0 0 #878787;
+              box-shadow: 0 1px 0 0 #878787; }
+    .section-counter__notch:hover:not(.focus-visible), .section-counter__notch--current, .section-counter__notch--current:focus:not(.focus-visible) {
       color: #1c1c1c;
       -webkit-box-shadow: 0 2px 0 0 currentColor;
               box-shadow: 0 2px 0 0 currentColor; }
-    .section-counter__notch:focus {
-      outline: none; }
     .section-counter__notch--current {
       width: 100%; } }
 
