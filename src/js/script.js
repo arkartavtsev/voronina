@@ -11,6 +11,8 @@
 //= modules/page-header.js
 //= modules/menu.js
 
+//= modules/anchor-smooth-scroll.js
+
 //= modules/aside-blocks.js
 //= modules/aside-social-links.js
 //= modules/section-counter.js

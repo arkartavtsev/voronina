@@ -23,15 +23,22 @@
       margin-bottom: 15px;
     }
 
-    &:hover,
-    &:focus,
-    &--current {
+    &:focus {
       color: $light-black;
       box-shadow: 0 2px 0 0 currentColor;
+      outline: none;
     }
 
-    &:focus {
-      outline: none;
+    &:focus:not(.focus-visible) {
+      color: transparent;
+      box-shadow: 0 1px 0 0 $gray;
+    }
+
+    &:hover:not(.focus-visible),
+    &--current,
+    &--current:focus:not(.focus-visible) {
+      color: $light-black;
+      box-shadow: 0 2px 0 0 currentColor;
     }
 
     &--current {
