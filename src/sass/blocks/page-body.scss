@@ -6,6 +6,9 @@
   font-family: "Source Serif Pro", $reserve-font-family;
   color: $light-black;
 
+  // iOS mobile menu positioning fix
+  position: relative;
+
   &--no-scroll {
     position: fixed;
     width: 100%;
