@@ -21,6 +21,10 @@
   }
 }
 
+.portfolio-details.fade-in-block--js {
+  transform: translateY($mobile-fade-in-shift);
+}
+
 .portfolio-details__content {
   position: relative;
   // side  -- 48 / 320
@@ -144,6 +148,10 @@
         background-image: url("../img/portfolio-details-bg-desktop@2x.jpg");
       }
     }
+  }
+
+  .portfolio-details.fade-in-block--js {
+    transform: translateY($desktop-fade-in-shift);
   }
 
   .portfolio-details__content {

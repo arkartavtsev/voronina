@@ -1,0 +1,14 @@
+.fade-in-block {
+  &--js {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 0s;
+    transition-timing-function: cubic-bezier(0.59, 0.01, 0.28, 1);
+  }
+}
+
+.fade-in-block--js.fade-in-block--visible {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition-duration: 1.2s;
+}

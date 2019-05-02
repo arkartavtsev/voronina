@@ -5,6 +5,10 @@
   background-color: rgba(black, 0.5%);
 }
 
+.intro__presentation.fade-in-block--js {
+  transform: translateY($mobile-fade-in-shift);
+}
+
 .intro__title {
   margin: 0;
   margin-bottom: 10px;
@@ -109,7 +113,13 @@
   .intro__photo-container {
     position: relative;
     z-index: 1;
+    top: auto;
+    left: auto;
     width: auto;
+  }
+
+  .intro__photo-container.fade-in-block--js {
+    transform: translateX($mobile-fade-in-shift);
   }
 
   .intro__photo {
@@ -139,6 +149,10 @@
     margin-right: 30px;
   }
 
+  .intro__presentation.fade-in-block--js {
+    transform: translateY($desktop-fade-in-shift);
+  }
+
   .intro__title {
     margin-bottom: 48px;
     font-size: 48px;
@@ -162,6 +176,10 @@
   .intro__text {
     width: 300px;
     margin-bottom: 44px;
+  }
+
+  .intro__photo-container.fade-in-block--js {
+    transform: translateX($desktop-fade-in-shift);
   }
 
   .intro__photo {

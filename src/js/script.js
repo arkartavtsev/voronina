@@ -12,6 +12,7 @@
 //= modules/menu.js
 
 //= modules/anchor-smooth-scroll.js
+//= modules/fade-in-block.js
 
 //= modules/aside-blocks.js
 //= modules/aside-social-links.js

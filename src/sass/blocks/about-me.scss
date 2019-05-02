@@ -42,6 +42,10 @@
   }
 }
 
+.about-me__container.fade-in-block--js {
+  transform: translateY($mobile-fade-in-shift);
+}
+
 .about-me__content {
   padding: 0 $mobile-padding;
   text-align: center;
@@ -182,6 +186,10 @@
         background-image: url("../img/about-me-bg-right-desktop@2x.jpg");
       }
     }
+  }
+
+  .about-me__container.fade-in-block--js {
+    transform: translateY($desktop-fade-in-shift);
   }
 
   .about-me__content {

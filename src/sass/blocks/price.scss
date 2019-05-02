@@ -16,6 +16,10 @@
   margin-left: 20px;
 }
 
+.price__list-item.fade-in-block--js {
+  transform: translateY($mobile-fade-in-shift);
+}
+
 .price__leaf {
   display: none;
 }
@@ -65,6 +69,14 @@
     }
   }
 
+  .price__list-item:nth-of-type(2).fade-in-block--visible {
+    transition-delay: 0.4s;
+  }
+
+  .price__list-item:nth-of-type(3).fade-in-block--visible {
+    transition-delay: 0.8s;
+  }
+
   .price__leaf {
     display: block;
     position: absolute;
@@ -104,6 +116,10 @@
     &--third {
       padding-top: 150px;
     }
+  }
+
+  .price__list-item.fade-in-block--js {
+    transform: translateY($desktop-fade-in-shift);
   }
 
   .price__leaf {
