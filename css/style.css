@@ -48,13 +48,6 @@ main {
   font-display: swap;
   src: url("../font/myriadpro-bold.woff2") format("woff2"), url("../font/myriadpro-bold.woff") format("woff"); }
 
-@font-face {
-  font-family: "Playfair Display SC";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("../font/playfairdisplaysc.woff2") format("woff2"), url("../font/playfairdisplaysc.woff") format("woff"); }
-
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -392,34 +385,19 @@ main {
       pointer-events: none; } }
 
 .logo {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
+  display: block;
   width: 140px;
-  height: 40px;
-  font: 400 10px/1 "Playfair Display SC", "Arial", sans-serif;
-  letter-spacing: 0.3em;
-  color: white;
-  background-image: linear-gradient(113deg, #709c54 0%, #8eb574 100%);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
+  height: 40px; }
 
 @media (min-width: 768px) {
   .logo {
-    width: 200px;
-    height: 60px;
-    font-size: 14px; } }
+    width: 210px;
+    height: 60px; } }
 
 @media (min-width: 1120px) {
   .logo {
-    width: 260px;
-    height: 80px;
-    font-size: 18px; } }
+    width: 280px;
+    height: 80px; } }
 
 .main-nav {
   -webkit-box-sizing: border-box;
@@ -806,7 +784,7 @@ main {
       position: absolute;
       top: 0;
       right: 0;
-      left: calc(200px + 33.334%);
+      left: calc(210px + 33.334%);
       height: 100%;
       background-image: url("../img/intro-bg@1x.jpg");
       background-position: 100% 0;
@@ -863,7 +841,7 @@ main {
   .intro {
     padding: 180px 80px 82px; }
     .intro::after {
-      left: 840px; }
+      left: 860px; }
   .intro__presentation {
     width: 500px;
     padding-bottom: 60px;
