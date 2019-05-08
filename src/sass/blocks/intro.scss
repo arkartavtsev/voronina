@@ -57,7 +57,7 @@
       top: 0;
       right: 0;
       // (logo width + menu-btn width) / 768
-      left: calc(200px + 33.334%);
+      left: calc(210px + 33.334%);
       height: 100%;
       background-image: url("../img/intro-bg@1x.jpg");
       background-position: 100% 0;
@@ -139,7 +139,8 @@
     padding: 180px 80px 82px;
 
     &::after {
-      left: 840px;
+      // logo width + main-nav width
+      left: 860px;
     }
   }
 
