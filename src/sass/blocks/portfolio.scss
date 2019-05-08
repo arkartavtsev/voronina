@@ -30,21 +30,20 @@
 
 
 @include mobile-only {
-  .portfolio--js .portfolio__samples-wrapper {
+  .portfolio--with-slider .portfolio__samples-wrapper {
     overflow: hidden;
   }
 
-  .portfolio--js .portfolio__samples {
-    position: relative;
-    left: 0;
+  .portfolio--with-slider .portfolio__samples {
     flex-wrap: nowrap;
     justify-content: flex-start;
     margin-bottom: 0;
     margin-left: 0;
-    transition: left 1s ease-out;
+    transform: translateX(0);
+    transition: transform 1s ease-out;
   }
 
-  .portfolio--js .portfolio__portfolio-item {
+  .portfolio--with-slider .portfolio__portfolio-item {
     width: 240px;
     margin-bottom: 0;
     margin-left: 0;

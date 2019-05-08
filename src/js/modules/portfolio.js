@@ -6,94 +6,90 @@
 
 
   if (portfolio) {
-    var itemsContainerWrapper = portfolio.querySelector('.portfolio__samples-wrapper');
-    var itemsContainer = portfolio.querySelector('.portfolio__samples');
+    var slider = portfolio.querySelector('.portfolio__samples-wrapper');
+    var sliderTape = slider.querySelector('.portfolio__samples');
 
-    var items = itemsContainer.querySelectorAll('.portfolio__portfolio-item');
+    var items = sliderTape.querySelectorAll('.portfolio__portfolio-item');
     var firstItem = items[0];
     var lastItem = items[items.length - 1];
 
 
+    var Item = null;
+    var Edge = null;
+
+    var sliderTapePosition = 0;
+
+    var windowWidth = document.documentElement.clientWidth;
+
+
     var isSliderNeeded = function () {
-      return items.length && firstItem.offsetWidth * (items.length - 1) + lastItem.offsetWidth > itemsContainerWrapper.offsetWidth;
+      return windowWidth < window.constants.resolution.TABLET
+      &&
+      items.length
+      &&
+      firstItem.offsetWidth * (items.length - 1) + lastItem.offsetWidth > slider.offsetWidth;
     };
 
 
-    if (isSliderNeeded()) {
-      portfolio.classList.add('portfolio--js');
-
-
-      var Item = null;
-      var Edge = null;
-
-      var windowWidth = null;
-
-      var xDown = null;
-      var yDown = null;
-
-
-      var defineParams = function () {
-        windowWidth = document.documentElement.clientWidth;
-
-        Item = {
-          WIDTH: firstItem.offsetWidth,
-          PADDING: parseFloat(getComputedStyle(firstItem).paddingRight)
-        };
-
-        Edge = {
-          LEFT: itemsContainerWrapper.getBoundingClientRect().left,
-          RIGHT: itemsContainerWrapper.getBoundingClientRect().right
-        };
-
-        itemsContainer.style.left = 0;
+    var defineSliderParams = function () {
+      Item = {
+        WIDTH: firstItem.offsetWidth,
+        PADDING: parseFloat(getComputedStyle(firstItem).paddingRight)
       };
 
-
-      var scrollSliderTape = function (offset) {
-        var position = parseInt(getComputedStyle(itemsContainer).left, 10);
-
-        position += offset;
-        itemsContainer.style.left = position + 'px';
+      Edge = {
+        LEFT: slider.getBoundingClientRect().left,
+        RIGHT: slider.getBoundingClientRect().right
       };
 
-      var showNextSlide = function () {
-        var offset = lastItem.getBoundingClientRect().right - Edge.RIGHT >= Item.WIDTH ?
-          -Item.WIDTH
-          :
-          Edge.RIGHT - lastItem.getBoundingClientRect().right - Item.PADDING;
-
-        scrollSliderTape(offset);
-      };
-
-      var showPrevSlide = function () {
-        var offset = Edge.LEFT - firstItem.getBoundingClientRect().left < Item.WIDTH ?
-          Edge.LEFT - firstItem.getBoundingClientRect().left + Item.PADDING
-          :
-          Item.WIDTH;
-
-        scrollSliderTape(offset);
-      };
+      sliderTapePosition = 0;
+      sliderTape.style.transform = 'translateX(' + sliderTapePosition + 'px)';
+    };
 
 
-      var handleTouchStart = function (evt) {
-        xDown = evt.touches[0].clientX;
-        yDown = evt.touches[0].clientY;
-      };
+    var scrollSliderTape = function (offset) {
+      sliderTapePosition += offset;
 
-      var handleTouchMove = function (evt) {
-        if (!xDown || !yDown) {
+      sliderTape.style.transform = 'translateX(' + sliderTapePosition + 'px)';
+    };
+
+    var showNextSlide = function () {
+      var offset = lastItem.getBoundingClientRect().right - Edge.RIGHT >= Item.WIDTH ?
+        -Item.WIDTH
+        :
+        Edge.RIGHT - lastItem.getBoundingClientRect().right - Item.PADDING;
+
+      scrollSliderTape(offset);
+    };
+
+    var showPrevSlide = function () {
+      var offset = Edge.LEFT - firstItem.getBoundingClientRect().left < Item.WIDTH ?
+        Edge.LEFT - firstItem.getBoundingClientRect().left + Item.PADDING
+        :
+        Item.WIDTH;
+
+      scrollSliderTape(offset);
+    };
+
+
+    var onSliderTouchStart = function (startEvt) {
+      var xStart = startEvt.touches[0].clientX;
+      var yStart = startEvt.touches[0].clientY;
+
+      var onSliderTouchMove = function (moveEvt) {
+        if (!xStart || !yStart) {
           return;
         }
 
-        var xUp = evt.touches[0].clientX;
-        var yUp = evt.touches[0].clientY;
+        var xMove = moveEvt.touches[0].clientX;
+        var yMove = moveEvt.touches[0].clientY;
 
-        var xDiff = xDown - xUp;
-        var yDiff = yDown - yUp;
+        var xDiff = xStart - xMove;
+        var yDiff = yStart - yMove;
 
         if (Math.abs(xDiff) > Math.abs(yDiff)) {
           if (Math.abs(yDiff) > 0) {
-            evt.preventDefault();
+            moveEvt.preventDefault();
           }
 
           if (xDiff > 0) {
@@ -105,25 +101,91 @@
           }
         }
 
-        xDown = null;
-        yDown = null;
+        xStart = null;
+        yStart = null;
       };
 
+      var onSliderTouchEnd = function () {
+        slider.removeEventListener('touchmove', onSliderTouchMove);
+        slider.removeEventListener('touchend', onSliderTouchEnd);
+      };
 
-      var onWindowResize = function () {
-        if (windowWidth !== document.documentElement.clientWidth) {
-          defineParams();
+      slider.addEventListener('touchmove', onSliderTouchMove);
+      slider.addEventListener('touchend', onSliderTouchEnd);
+    };
+
+
+    var onSliderMouseDown = function (downEvt) {
+      downEvt.preventDefault();
+
+      var xDown = downEvt.clientX;
+
+      var onSliderMouseMove = function (moveEvt) {
+        if (!xDown) {
+          return;
+        }
+
+        var xMove = moveEvt.clientX;
+        var xDiff = xDown - xMove;
+
+        if (xDiff > 0) {
+          showNextSlide();
+        }
+
+        if (xDiff < 0) {
+          showPrevSlide();
+        }
+
+        if (xDiff) {
+          xDown = null;
         }
       };
 
+      var onSliderMouseUp = function () {
+        slider.removeEventListener('mousemove', onSliderMouseMove);
+        slider.removeEventListener('mouseup', onSliderMouseUp);
+      };
 
-      defineParams();
+      slider.addEventListener('mousemove', onSliderMouseMove);
+      slider.addEventListener('mouseup', onSliderMouseUp);
+    };
 
 
-      itemsContainerWrapper.addEventListener('touchstart', handleTouchStart);
-      itemsContainerWrapper.addEventListener('touchmove', handleTouchMove);
+    var initializeSlider = function () {
+      portfolio.classList.add('portfolio--with-slider');
+      defineSliderParams();
 
-      window.addEventListener('resize', onWindowResize);
+      slider.addEventListener('touchstart', onSliderTouchStart);
+      slider.addEventListener('mousedown', onSliderMouseDown);
+    };
+
+    var destroySlider = function () {
+      portfolio.classList.remove('portfolio--with-slider');
+      sliderTape.style.transform = '';
+
+      slider.removeEventListener('touchstart', onSliderTouchStart);
+      slider.removeEventListener('mousedown', onSliderMouseDown);
+    };
+
+
+    var onWindowResize = function () {
+      if (windowWidth !== document.documentElement.clientWidth) {
+        windowWidth = document.documentElement.clientWidth;
+
+        destroySlider();
+
+        if (isSliderNeeded()) {
+          initializeSlider();
+        }
+      }
+    };
+
+
+    if (isSliderNeeded()) {
+      initializeSlider();
     }
+
+
+    window.addEventListener('resize', onWindowResize);
   }
 })();
