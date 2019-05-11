@@ -13,6 +13,11 @@
   }
 }
 
+.page-header__menu-btn {
+  // IE fix
+  margin-left: auto;
+}
+
 .page-header__main-nav {
   order: 1;
 }
@@ -25,6 +30,10 @@
 @include tablet {
   .page-header {
     justify-content: flex-start;
+  }
+
+  .page-header__menu-btn {
+    margin-left: 0;
   }
 
   .page-header__tel-wrapper {
