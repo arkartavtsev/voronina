@@ -37,9 +37,7 @@ gulp.task('copy', function () {
     'src/*.html',
     'src/font/**/*.{woff,woff2}',
     'src/js/**/*.js',
-    'src/img/*',
-    'src/video/*',
-    'src/data/**/*'
+    'src/img/**/*'
   ], {
     base: 'src'
   })

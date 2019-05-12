@@ -84,7 +84,8 @@
 @include desktop-full {
   .page-body__aside-block {
     position: fixed;
-    top: calc(50% - 70px);
+    z-index: 10;
+    top: 50%;
     transform: translateY(-50%);
 
     &--js {
@@ -99,7 +100,7 @@
   .page-body__social-links {
     flex-wrap: nowrap;
     padding: 77px 0;
-    transform: translateY(-150%) rotate(90deg);
+    transform: translateY(-160%) rotate(90deg);
     transform-origin: left bottom;
     opacity: 1;
     transition: opacity 0.4s;

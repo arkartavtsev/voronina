@@ -145,8 +145,8 @@
 @include desktop {
   .main-nav {
     position: relative;
-    width: 580px;
-    padding: 29px 80px;
+    width: 560px;
+    padding: 29px 70px;
     background: none;
 
     &::before {
@@ -178,7 +178,7 @@
     letter-spacing: normal;
 
     &:not(:last-of-type) {
-      margin-right: 80px;
+      margin-right: 70px;
       margin-bottom: 0;
     }
 

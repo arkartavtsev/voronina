@@ -7,7 +7,7 @@
 
   if (blocks.length) {
     var isBlockIntoView = function (block) {
-      return block.getBoundingClientRect().top <= document.documentElement.clientHeight;
+      return block.getBoundingClientRect().top <= window.innerHeight;
     };
 
     var checkBlockVisibility = function (block) {
