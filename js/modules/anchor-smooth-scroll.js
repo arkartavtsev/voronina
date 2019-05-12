@@ -6,7 +6,7 @@
 
   if (links.length) {
     var SCROLL_DURATION = 300;
-    var FRAMES_COUNT = 30;
+    var FRAMES_COUNT = 60;
 
     var smoothScrollTo = function (element) {
       var start = window.pageYOffset;

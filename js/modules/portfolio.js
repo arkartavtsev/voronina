@@ -17,6 +17,9 @@
     var Item = null;
     var Edge = null;
 
+    var xStart = null;
+    var yStart = null;
+
     var sliderTapePosition = 0;
 
     var windowWidth = document.documentElement.clientWidth;
@@ -73,60 +76,25 @@
 
 
     var onSliderTouchStart = function (startEvt) {
-      var xStart = startEvt.touches[0].clientX;
-      var yStart = startEvt.touches[0].clientY;
-
-      var onSliderTouchMove = function (moveEvt) {
-        if (!xStart || !yStart) {
-          return;
-        }
-
-        var xMove = moveEvt.touches[0].clientX;
-        var yMove = moveEvt.touches[0].clientY;
-
-        var xDiff = xStart - xMove;
-        var yDiff = yStart - yMove;
-
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {
-          if (Math.abs(yDiff) > 0) {
-            moveEvt.preventDefault();
-          }
-
-          if (xDiff > 0) {
-            showNextSlide();
-          }
-
-          if (xDiff < 0) {
-            showPrevSlide();
-          }
-        }
-
-        xStart = null;
-        yStart = null;
-      };
-
-      var onSliderTouchEnd = function () {
-        slider.removeEventListener('touchmove', onSliderTouchMove);
-        slider.removeEventListener('touchend', onSliderTouchEnd);
-      };
-
-      slider.addEventListener('touchmove', onSliderTouchMove);
-      slider.addEventListener('touchend', onSliderTouchEnd);
+      xStart = startEvt.touches[0].clientX;
+      yStart = startEvt.touches[0].clientY;
     };
 
+    var onSliderTouchMove = function (moveEvt) {
+      if (!xStart || !yStart) {
+        return;
+      }
 
-    var onSliderMouseDown = function (downEvt) {
-      downEvt.preventDefault();
+      var xMove = moveEvt.touches[0].clientX;
+      var yMove = moveEvt.touches[0].clientY;
 
-      var xDown = downEvt.clientX;
+      var xDiff = xStart - xMove;
+      var yDiff = yStart - yMove;
 
-      var onSliderMouseMove = function (moveEvt) {
-        if (!xDown) {
-          return;
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (Math.abs(yDiff) > 0) {
+          moveEvt.preventDefault();
         }
-
-        var xMove = moveEvt.clientX;
-        var xDiff = xDown - xMove;
 
         if (xDiff > 0) {
           showNextSlide();
@@ -135,19 +103,38 @@
         if (xDiff < 0) {
           showPrevSlide();
         }
+      }
 
-        if (xDiff) {
-          xDown = null;
-        }
-      };
+      xStart = null;
+      yStart = null;
+    };
 
-      var onSliderMouseUp = function () {
-        slider.removeEventListener('mousemove', onSliderMouseMove);
-        slider.removeEventListener('mouseup', onSliderMouseUp);
-      };
 
-      slider.addEventListener('mousemove', onSliderMouseMove);
-      slider.addEventListener('mouseup', onSliderMouseUp);
+    var onSliderMouseDown = function (downEvt) {
+      downEvt.preventDefault();
+
+      xStart = downEvt.clientX;
+    };
+
+    var onSliderMouseMove = function (moveEvt) {
+      if (!xStart) {
+        return;
+      }
+
+      var xMove = moveEvt.clientX;
+      var xDiff = xStart - xMove;
+
+      if (xDiff > 0) {
+        showNextSlide();
+      }
+
+      if (xDiff < 0) {
+        showPrevSlide();
+      }
+
+      if (xDiff) {
+        xStart = null;
+      }
     };
 
 
@@ -156,7 +143,10 @@
       defineSliderParams();
 
       slider.addEventListener('touchstart', onSliderTouchStart);
+      slider.addEventListener('touchmove', onSliderTouchMove);
+
       slider.addEventListener('mousedown', onSliderMouseDown);
+      slider.addEventListener('mousemove', onSliderMouseMove);
     };
 
     var destroySlider = function () {
@@ -164,7 +154,10 @@
       sliderTape.style.transform = '';
 
       slider.removeEventListener('touchstart', onSliderTouchStart);
+      slider.removeEventListener('touchmove', onSliderTouchMove);
+
       slider.removeEventListener('mousedown', onSliderMouseDown);
+      slider.removeEventListener('mousemove', onSliderMouseMove);
     };
 
 
