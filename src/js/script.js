@@ -1,8 +1,8 @@
-// полифиллы
 //= third-party/svgxuse.js
 //= third-party/ofi.js
 //= third-party/picturefill.js
 //= third-party/focus-visible.js
+//= third-party/smoothscroll.js
 
 
 //= modules/constants.js
